@@ -1,6 +1,31 @@
 import google.genai as genai
 import config; google_api = config.API_KEY
 
+
+def print_banner():
+    MAUVE    = "\033[38;2;203;166;247m"
+    LAVENDER = "\033[38;2;180;190;254m"
+    SKY      = "\033[38;2;137;220;235m"
+    PEACH    = "\033[38;2;250;179;135m"
+    RESET    = "\033[0m"
+
+    ASCII_ART = f"""                                                      
+    {LAVENDER} ██████╗ ██╗  ██╗███████╗ █████╗ ███╗   ███╗     ██╗ █████╗ ██╗███╗   ██╗
+    ██╔═████╗╚██╗██╔╝██╔════╝██╔══██╗████╗ ████║     ██║██╔══██╗██║████╗  ██║
+    ██║██╔██║ ╚███╔╝ ███████╗███████║██╔████╔██║     ██║███████║██║██╔██╗ ██║
+    ████╔╝██║ ██╔██╗ ╚════██║██╔══██║██║╚██╔╝██║██   ██║██╔══██║██║██║╚██╗██║
+    ╚██████╔╝██╔╝ ██╗███████║██║  ██║██║ ╚═╝ ██║╚█████╔╝██║  ██║██║██║ ╚████║
+    ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝ ╚════╝ ╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝
+
+    {MAUVE}        ┌──────────────────────────────────────────────┐
+            │  {PEACH}$ whoami   {MAUVE}──►  {SKY}Samyak Jain                 {MAUVE}│
+            │  {PEACH}$ id       {MAUVE}──►  {SKY}0x6861636b6572              {MAUVE}│
+            │  {PEACH}$ github   {MAUVE}──►  {SKY}github.com/0xsamja1n        {MAUVE}│
+            └──────────────────────────────────────────────┘{RESET}
+    """
+    print(ASCII_ART)
+
+print_banner()
 print("Paste your writing sample. Type 'END' on a new line when done:")
 lines = []
 while True:
