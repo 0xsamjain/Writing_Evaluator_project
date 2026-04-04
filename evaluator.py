@@ -1,9 +1,17 @@
-import google.generativeai as genai
+import google.genai as genai
 import config; google_api = config.API_KEY
 
-writing_sample = input("Paste your writing sample here:\n")
-genai.configure(api_key=google_api)
-model = genai.GenerativeModel("gemini-1.5-flash")
+print("Paste your writing sample. Type 'END' on a new line when done:")
+lines = []
+while True:
+    line = input()
+    if line.strip() == "END":
+        break
+    lines.append(line)
+writing_sample = "\n".join(lines)
+client = genai.Client(api_key=google_api)
+model = 'gemini-2.5-flash'
+
                               
 my_prompt = f"""
 You are a writing evaluator who first correctly identifies which of the following type of para this belongs to:
@@ -45,6 +53,6 @@ Writing sample:
 {writing_sample}
 """
 
-response = model.generate_content(my_prompt)
+response = client.models.generate_content(model=model, contents=my_prompt)
 output = response.text
 print(output)
